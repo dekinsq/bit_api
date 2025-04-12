@@ -38,11 +38,16 @@ client = BitnetClient(token="your-auth-token")
 
 ```python
 # Check API health
-response = client.health_check()
-if response.success:
-    print("API is healthy!")
-else:
-    print(f"API health check failed: {response.msg}")
+from requests.exceptions import RequestException
+
+try:
+    response = client.health_check()
+    if response.success:
+        print("API is healthy!")
+    else:
+        print(f"API health check failed: {response.msg}")
+except RequestException as e:
+    print(f"API request failed: {e}")
 ```
 
 #### Browser Management
@@ -255,6 +260,84 @@ try:
 except RequestException as e:
     print(f"API request failed: {e}")
 ```
+
+## Package Publishing
+
+This project includes several tools to simplify version management and publishing to PyPI.
+
+### Publishing Tools Overview
+
+| Tool | Type | Functionality |
+|-----|------|------|
+| `publish.sh` | Shell script | Basic publishing automation |
+| `publish.py` | Python script | Full-featured publishing tool with argument parsing and test publishing support |
+| `bump_version.py` | Python script | Standalone version updater |
+
+### Using `publish.py` (Recommended)
+
+This is the most complete publishing tool with version management and publishing functionality.
+
+```bash
+# Increment patch version and publish
+python publish.py patch
+
+# Increment minor version and publish
+python publish.py minor
+
+# Increment major version and publish
+python publish.py major
+
+# Publish to TestPyPI
+python publish.py patch --test
+
+# Skip confirmation prompts
+python publish.py patch --no-confirm
+```
+
+**Parameters:**
+
+- `patch|minor|major`: Specify which version part to increment
+- `--no-confirm`: Skip confirmation steps
+- `--test`: Upload to TestPyPI instead of the official PyPI
+
+### Using `publish.sh`
+
+A simple shell script that provides basic publishing functionality.
+
+```bash
+./publish.sh
+```
+
+### Using `bump_version.py`
+
+If you only want to update the version number without publishing:
+
+```bash
+# Increment patch version
+python bump_version.py patch
+
+# Increment minor version
+python bump_version.py minor
+
+# Increment major version
+python bump_version.py major
+```
+
+### PyPI Configuration
+
+The publishing tools require a `~/.pypirc` file for authentication:
+
+```
+[pypi]
+username = __token__
+password = your-pypi-token
+
+[testpypi]
+username = __token__
+password = your-testpypi-token
+```
+
+See [README_PUBLISH.md](README_PUBLISH.md) for more detailed publishing instructions.
 
 ## Complete API Reference
 
