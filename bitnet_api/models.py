@@ -327,6 +327,7 @@ class Browser:
     http: Optional[str] = None
     core_version: Optional[str] = None
     pid: Optional[int] = None
+    driver: Optional[str] = None  # chromedriver路径
     
     # 代理设置
     proxy_method: Optional[int] = None
@@ -387,6 +388,7 @@ class Browser:
             http=data.get('http'),
             core_version=data.get('coreVersion'),
             pid=data.get('pid'),
+            driver=data.get('driver'),
             
             # 代理设置
             proxy_method=data.get('proxyMethod'),

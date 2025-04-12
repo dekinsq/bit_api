@@ -318,7 +318,16 @@ class BitnetClient:
             new_page_url: Specify a URL to open during browser launch
             
         Returns:
-            BrowserResponse object with browser information
+            BrowserResponse object with browser information including:
+            - ws: WebSocket URL for DevTools connection
+            - http: HTTP address
+            - coreVersion: Chrome core version
+            - driver: Path to chromedriver
+            - seq: Browser sequence number
+            - name: Browser name
+            - remark: Browser remark
+            - groupId: Group ID
+            - pid: Process ID
         """
         data = {"id": id}
         if args:
