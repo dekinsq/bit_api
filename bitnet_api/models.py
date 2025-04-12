@@ -43,7 +43,7 @@ class BrowserFingerPrint:
 @dataclass
 class Browser:
     """Browser window details"""
-    id: str
+    id: Optional[str] = None
     name: Optional[str] = None
     remark: Optional[str] = None
     seq: Optional[int] = None
@@ -68,7 +68,7 @@ class Browser:
             browser_finger_print = BrowserFingerPrint.from_dict(data['browserFingerPrint'])
             
         return cls(
-            id=data['id'],
+            id=data.get('id'),
             name=data.get('name'),
             remark=data.get('remark'),
             seq=data.get('seq'),
@@ -199,10 +199,10 @@ class BrowserResponse(BaseResponse):
         success = data.get('success', False)
         msg = data.get('msg')
         browser_data = None
+        # print(f'BrowserResponse raw: {data}')
         
         if success and 'data' in data and isinstance(data['data'], dict):
-            if 'id' in data['data']:
-                browser_data = Browser.from_dict(data['data'])
+            browser_data = Browser.from_dict(data['data'])
         
         return cls(success=success, msg=msg, data=browser_data)
 
