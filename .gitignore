@@ -102,3 +102,4 @@ bitnet_venv/
 .vscode/
 *.swp
 *.swo 
+doc

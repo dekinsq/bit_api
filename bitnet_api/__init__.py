@@ -4,7 +4,7 @@ from .models import (
     PageInfo, BrowserListResponse, GroupListResponse, 
     HealthResponse, BrowserResponse, GroupResponse, 
     ProxyCheckInfo, ProxyCheckResponse, BrowserPidInfo, 
-    BrowserPidResponse, GenericResponse
+    BrowserPidResponse, GenericResponse, BrowserCookie
 )
 
 __version__ = "0.1.0" 
