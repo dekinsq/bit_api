@@ -1,0 +1,1 @@
+Python SDK for Bitnet Browser API with clean entity-based responses 
