@@ -103,3 +103,4 @@ bitnet_venv/
 *.swp
 *.swo 
 doc
+.venv

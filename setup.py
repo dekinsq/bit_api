@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 setup(
     name="bitnet-api",
     version="0.1.0",
-    packages=find_packages(),
+    packages=find_packages() + ['adspower_api'],
     install_requires=[
         "requests>=2.25.0",
     ],
@@ -19,4 +19,4 @@ setup(
         "Operating System :: OS Independent",
     ],
     python_requires=">=3.6",
-) 
+)
