@@ -151,7 +151,7 @@ class AdsPowerClient:
                      password_saving: Optional[str] = None,
                      cdp_mask: Optional[str] = None,
                      delete_cache: Optional[str] = None,
-                     device_scale: Optional[str] = None) -> BrowserResponse:
+                     device_scale: Optional[str] = None) -> BrowserActiveResponse:
         """启动浏览器
         
         Args:
@@ -195,7 +195,7 @@ class AdsPowerClient:
             data["device_scale"] = device_scale
             
         response_data = self._post("api/v2/browser-profile/start", data)
-        return BrowserResponse.from_dict(response_data)
+        return BrowserActiveResponse.from_dict(response_data)
     
     def stop_browser(self, profile_id: Optional[str] = None, profile_no: Optional[str] = None) -> BaseResponse:
         """关闭浏览器

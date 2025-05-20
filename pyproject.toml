@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "bitnet-api"
-version = "3.0.0"
+version = "3.0.6"
 description = "Python SDK for Bitnet Browser API with clean entity-based responses"
 readme = "README.md"
 authors = [
@@ -27,4 +27,4 @@ dependencies = [
 "Documentation" = "https://github.com/dekinsq/bit_api#readme"
 
 [tool.setuptools]
-packages = ["bitnet_api"] 
+packages = ["bitnet_api","adspower_api","flywing_api"] 
