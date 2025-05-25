@@ -195,6 +195,7 @@ class AdsPowerClient:
             data["device_scale"] = device_scale
             
         response_data = self._post("api/v2/browser-profile/start", data)
+        print(f'start response_data:{response_data}')
         return BrowserActiveResponse.from_dict(response_data)
     
     def stop_browser(self, profile_id: Optional[str] = None, profile_no: Optional[str] = None) -> BaseResponse:

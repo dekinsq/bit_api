@@ -14,7 +14,7 @@ class BaseResponse:
         """从API响应字典创建BaseResponse对象"""
         return cls(
             code=data.get('code', -1),
-            msg=data.get('message', ''),
+            msg=data.get('msg', ''),
             data=data.get('data')
         )
 

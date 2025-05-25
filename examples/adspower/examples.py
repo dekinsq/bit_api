@@ -58,8 +58,8 @@ def create_browser_example():
     # 创建浏览器环境
     response = client.create_browser(
         group_id="6345582",  # 替换为实际的分组ID
-        name="测试浏览器",
-        remark="API创建的测试环境",
+        name="测试浏览器-DQ",
+        remark="API创建的测试环境-DQ",
         fingerprint_config=fingerprint,
         user_proxy_config=proxy_config
     )
@@ -84,8 +84,7 @@ def start_browser_example(profile_id):
     )
     
     if response.code == 0:
-        print(f"启动成功，调试地址: {response.browser}")
-        print(f"浏览器地址: {response.browser}")
+        print(f"启动成功，调试地址: {response}")
     else:
         print(f"启动失败: {response.msg}")
     
@@ -269,18 +268,26 @@ def check_status_example():
 if __name__ == "__main__":
     
     # 或者运行完整流程
-    main()
+    # main()
     
     # 默认只打印可用示例函数
-    print("可用示例函数:")
-    print("- create_browser_example()")
-    print("- start_browser_example(profile_id)")
-    print("- list_browsers_example()")
-    print("- list_groups_example()")
-    print("- check_browser_active_example(profile_id)")
-    print("- stop_browser_example(profile_id)")
-    print("- update_browser_example(profile_id)")
-    print("- delete_browser_example(profile_id)")
-    print("- check_status_example()")
-    print("- main() # 运行完整流程")
+    # print("可用示例函数:")
+    # print("- create_browser_example()")
+    # print("- start_browser_example(profile_id)")
+    # print("- list_browsers_example()")
+    # print("- list_groups_example()")
+    # print("- check_browser_active_example(profile_id)")
+    # print("- stop_browser_example(profile_id)")
+    # print("- update_browser_example(profile_id)")
+    # print("- delete_browser_example(profile_id)")
+    # print("- check_status_example()")
+    # print("- main() # 运行完整流程")
+
+    client = AdsPowerClient()
+    response = client.start_browser(
+        profile_id='kyhnllj',
+        headless="0",  # 非无头模式
+        proxy_detection="0"  # 不打开代理检测页面
+    )
+    print(response)
 
